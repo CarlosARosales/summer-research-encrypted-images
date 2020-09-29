@@ -1,0 +1,29 @@
+
+.button{
+	-fx-font-weight: bold;
+	-fx-background-color: #023246;
+}	
+
+.button:hover{
+	-fx-background-color:   #02425e;
+
+}
+
+.button:pressed{
+	-fx-background-color:   #02425e;
+}
+
+.VBox{
+	-fx-background-color:  #02425e;
+}
+
+.BorderPane{
+	-fx-background-color:  #F6F6F6;
+	-fx-border-color: #bfbfbf;
+}
+.Text{
+	
+}
+
+
+

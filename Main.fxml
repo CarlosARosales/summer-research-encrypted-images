@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #F6F6F6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <VBox prefHeight="650.0" prefWidth="200.0" style="-fx-background-color: #02425e;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="200.0" layoutY="-4.0">
+                     <image>
+                        <Image url="@../../../../Downloads/download.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" minHeight="50.0" mnemonicParsing="false" prefWidth="200.0" stylesheets="@application.css" text="Load Image" textFill="#f6f6f6">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" minHeight="50.0" mnemonicParsing="false" onAction="#changeDataEmbeddingUI" prefWidth="200.0" text="Data Embedding" textFill="#f6f6f6">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" minHeight="50.0" mnemonicParsing="false" onAction="#changeDataExtractionUI" prefWidth="200.0" text="Data Extraction" textFill="#f6f6f6">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children></VBox>
+      <Text layoutX="748.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Encrypted Image" />
+      <Text fx:id="passwordMatch" layoutX="716.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passwords don't match" visible="false" wrappingWidth="159.71728515625" />
+      <BorderPane layoutX="232.0" layoutY="22.0" prefHeight="200.0" prefWidth="300.0" styleClass="BorderPane" stylesheets="@application.css" AnchorPane.bottomAnchor="327.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="428.0" AnchorPane.topAnchor="20.0">
+         <bottom>
+            <Button fx:id="LoadImage" mnemonicParsing="false" onAction="#uploadImage" style="-fx-background-color: #02425e;" text="Upload Image" textFill="WHITE" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </BorderPane.margin></Button>
+         </bottom>
+         <top>
+            <ImageView fx:id="imageView" fitHeight="250.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="BorderPane">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin></ImageView>
+         </top>
+      </BorderPane>
+      <BorderPane layoutX="620.0" layoutY="20.0" prefHeight="200.0" prefWidth="300.0" styleClass="BorderPane" stylesheets="@application.css" AnchorPane.bottomAnchor="327.0" AnchorPane.leftAnchor="628.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <bottom>
+            <Button mnemonicParsing="false" onAction="#preprocessButton" style="-fx-background-color: #02425e;" text="Pre-process Image" textFill="WHITE" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </bottom>
+         <center>
+            <ImageView fx:id="preprocessedView" fitHeight="250.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="BorderPane" />
+         </center>
+      </BorderPane>
+      <BorderPane layoutX="624.0" layoutY="379.0" prefHeight="200.0" prefWidth="300.0" styleClass="BorderPane" stylesheets="@application.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="628.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="378.0">
+         <center>
+            <ImageView fx:id="encryptedView" fitHeight="250.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <BorderPane layoutX="235.0" layoutY="378.0" minHeight="200.0" minWidth="300.0" prefHeight="250.0" prefWidth="350.0" styleClass="BorderPane" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="428.0" AnchorPane.topAnchor="378.0">
+         <center>
+            <PasswordField fx:id="confirmKey" promptText="Confirm Encryption Key" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="10.0" />
+               </BorderPane.margin>
+            </PasswordField>
+         </center>
+         <top>
+            <PasswordField fx:id="encryptionKey" promptText="Enter Encryption Key" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="50.0" right="50.0" top="50.0" />
+               </BorderPane.margin>
+            </PasswordField>
+         </top>
+         <bottom>
+            <Button mnemonicParsing="false" onAction="#encrypt" style="-fx-background-color: #02425e;" text="Encrypt" textFill="WHITE" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="40.0" />
+               </BorderPane.margin>
+            </Button>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
